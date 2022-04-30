@@ -1,39 +1,12 @@
 #include "linux_kernel_trace_reader.h"
 
 
-uint64_t bitshift(std::string const& value)
-{
-	uint64_t result = 0;
-	char const* p;
-	char const* q;
-
-	if (value.empty()) {
-		return 0;
-	}
-
-	if (!(value.find_first_not_of("0123456789") == std::string::npos)) {
-		return 0;
-	}
-
-	if (value.size() > 64) {
-		return 0;
-	}
-
-	p = value.c_str();
-	q = p + value.size();
-
-	while (p < q) {
-		result = (result << 1) + (result << 3) + *(p++) - '0';
-	}
-
-	return result;
-}
-
 std::ostream& operator<<(std::ostream& os, const cr0_t &cr0)
 {
 	int bit;
 
-	os << "CR0: " << cr0.val << "\n";
+	os << "CR0—Provides operating-mode controls and some processor-feature controls.\n";
+	os << "CR0: " << std::hex << cr0.val << "\n";
 	for (bit = 63; bit >= 0; bit--) {
 		os << ((cr0.val >> bit) & 1);
 	}
@@ -71,6 +44,74 @@ std::ostream& operator<<(std::ostream& os, const cr0_t &cr0)
 	os << "Emulation: 		" << cr0.EM << "\n";
 	os << "Monitor Coprocessor: 	" << cr0.MP << "\n";
 	os << "Protection Enabled: 	" << cr0.PE << "\n";
+
+	return os;
+}
+
+
+std::ostream& operator<<(std::ostream& os, const cr2_t &cr2)
+{
+	int bit;
+
+	os << 	"CR2—This register is used by the page-translation mechanism.\n"
+		"It is loaded by the processor with the page-fault virtual address\n"
+		"when a page-fault exception occurs.\n";
+	os << "Page-Fault Virtual address: " << "0x" << std::hex << cr2.val << "\n";
+	for (bit = 63; bit >= 0; bit--) {
+		os << ((cr2.val >> bit) & 1);
+	}
+	os << "\n";
+
+	return os;
+}
+
+
+std::ostream& operator<<(std::ostream& os, const cr3_t &cr3)
+{
+	int bit;
+
+	os << "CR3—This register is also used by the page-translation mechanism.\n";
+	os << "It contains the base address ofthe highest-level page-translation table,\n";
+	os << "and also contains cache controls for the specified table..\n";
+	os << "CR3: " << std::hex << cr3.val << "\n";
+
+	for (bit = 63; bit >= 0; bit--) {
+		os << ((cr3.val >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "reserved MBZ: 		";
+	for (bit = 11; bit >= 0; bit--) {
+		os << ((cr3.reserved_MBZ >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "Page-Map Level-4 Table Base Address:\n";
+	for (bit = 39; bit >= 0; bit--) {
+		os << ((cr3.PageMapLevel4TableBaseAddress >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "Processor Context Identifier:\n";
+	for (bit = 11; bit >= 0; bit--) {
+		os << ((cr3.ProcessorContextId >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "Reserved:	";
+	for (bit = 6; bit >= 0; bit--) {
+		os << ((cr3.Reserved1 >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "Page-Level Cache Disable: 		" << cr3.PCD << "\n";
+	os << "Page-Level Writethrough: 		" << cr3.PWT << "\n";
+
+	os << "Reserved:	";
+	for (bit = 2; bit >= 0; bit--) {
+		os << ((cr3.Reserved2 >> bit) & 1);
+	}
+	os << "\n";
 
 	return os;
 }

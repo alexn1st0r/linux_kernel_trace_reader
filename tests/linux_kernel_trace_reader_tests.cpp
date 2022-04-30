@@ -7,63 +7,6 @@
 
 namespace {
 
-class BitshiftTest : public ::testing::Test {
-protected:
-
-	BitshiftTest() {
-	}
-
-	virtual ~BitshiftTest() {
-	}
-
-	virtual void SetUp() {
-	}
-
-	virtual void TearDown() {
-	}
-
-};
-
-TEST(BitshiftTest, TestRealValue)
-{
-
-	uint64_t val = bitshift("0000000080050033");
-
-	ASSERT_EQ(val, 80050033);
-}
-
-TEST(BitshiftTest, TestEmptyString)
-{
-
-	uint64_t val = bitshift("");
-
-	ASSERT_EQ(val, 0);
-}
-
-TEST(BitshiftTest, TestNotDigitString)
-{
-
-	uint64_t val = bitshift("alala");
-
-	ASSERT_EQ(val, 0);
-}
-
-TEST(BitshiftTest, TestNegativeValue)
-{
-
-	uint64_t val = bitshift("-129292");
-
-	ASSERT_EQ(val, 0);
-}
-
-TEST(BitshiftTest, TestTooBigString)
-{
-
-	uint64_t val = bitshift("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
-
-	ASSERT_EQ(val, 0);
-}
-
 
 class CR0Test : public ::testing::Test { 
 
@@ -88,9 +31,9 @@ TEST(CR0Test, TestCR0RealValue)
 	 * 0000000000000000000000000000000000000100110001010111011101110001
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
-	ASSERT_EQ(cr0.val, 80050033);
+	ASSERT_EQ(cr0.val, 0x80050033);
 }
 
 TEST(CR0Test, TestCR0ReservedMBZValue)
@@ -100,7 +43,7 @@ TEST(CR0Test, TestCR0ReservedMBZValue)
 	 * reserved MBZ: 	00000000000000000000000000000000
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.reserved_MBZ, 0);
 }
@@ -112,9 +55,9 @@ TEST(CR0Test, TestCR0PagingValue)
 	 * Paging:		0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
-	ASSERT_EQ(cr0.PG, 0);
+	ASSERT_EQ(cr0.PG, 1);
 }
 
 TEST(CR0Test, TestCR0CacheDisableValue)
@@ -124,7 +67,7 @@ TEST(CR0Test, TestCR0CacheDisableValue)
 	 * Cache disable: 	0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.CD, 0);
 }
@@ -136,7 +79,7 @@ TEST(CR0Test, TestCR0NotWritethroughValue)
 	 * Not Writethrough:	0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.NW, 0);
 }
@@ -148,9 +91,9 @@ TEST(CR0Test, TestCR0Reserved1Value)
 	 * Reserved: 		0010011000
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
-	ASSERT_EQ(cr0.reserved1, 152);
+	ASSERT_EQ(cr0.reserved1, 0);
 }
 
 TEST(CR0Test, TestCR0AlighnmentMaskValue)
@@ -160,7 +103,7 @@ TEST(CR0Test, TestCR0AlighnmentMaskValue)
 	 * Alighnment Mask: 	1
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.AM, 1);
 }
@@ -172,7 +115,7 @@ TEST(CR0Test, TestCR0Reserved2Value)
 	 * Reserved: 		0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.reserved2, 0);
 }
@@ -184,7 +127,7 @@ TEST(CR0Test, TestCR0WriteProtectValue)
 	 * Write Protect: 	1
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.WP, 1);
 }
@@ -196,9 +139,9 @@ TEST(CR0Test, TestCR0Reserved3Value)
 	 * Reserved: 		0111011101
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
-	ASSERT_EQ(cr0.reserved3, 477);
+	ASSERT_EQ(cr0.reserved3, 0);
 }
 
 TEST(CR0Test, TestCR0NumericErrorValue)
@@ -208,7 +151,7 @@ TEST(CR0Test, TestCR0NumericErrorValue)
 	 * Numeric Error: 	1
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.NE, 1);
 }
@@ -220,7 +163,7 @@ TEST(CR0Test, TestCR0ExtentionTypeValue)
 	 * Extention Type:	1
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.ET, 1);
 }
@@ -232,7 +175,7 @@ TEST(CR0Test, TestCR0TaskSwitchedValue)
 	 * Task switched: 	0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.TS, 0);
 }
@@ -244,7 +187,7 @@ TEST(CR0Test, TestCR0EmulationValue)
 	 * Emulation: 		0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
 	ASSERT_EQ(cr0.EM, 0);
 }
@@ -256,9 +199,9 @@ TEST(CR0Test, TestCR0MonitorCoprocessorValue)
 	 * Monitor Coprocessor:	0
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
 
-	ASSERT_EQ(cr0.MP, 0);
+	ASSERT_EQ(cr0.MP, 1);
 }
 
 TEST(CR0Test, TestCR0ProtectionEnabledValue)
@@ -268,8 +211,67 @@ TEST(CR0Test, TestCR0ProtectionEnabledValue)
 	 * Protection Enabled: 	1
 	 */
 	struct cr0_t cr0;
-	cr0.val = bitshift("0000000080050033");
+	cr0.val = 0x0000000080050033;
+
 	ASSERT_EQ(cr0.PE, 1);
+}
+
+
+class CR2Test : public ::testing::Test { 
+
+protected:
+	CR2Test() {
+	}
+
+	virtual ~CR2Test() {
+	}
+
+	virtual void SetUp() {
+	}
+
+	virtual void TearDown() {
+	}
+};
+
+TEST(CR2Test, TestCR2RealValue)
+{
+	/*
+	 * CR2: 0x7ffde15c9ec9
+	 * 0000000000000000011111111111110111100001010111001001111011001001
+	 */
+	struct cr2_t cr2;
+	cr2.val = 0x00007ffde15c9ec9;
+
+	ASSERT_EQ(cr2.val, 0x00007ffde15c9ec9);
+}
+
+
+class CR3Test : public ::testing::Test { 
+
+protected:
+	CR3Test() {
+	}
+
+	virtual ~CR3Test() {
+	}
+
+	virtual void SetUp() {
+	}
+
+	virtual void TearDown() {
+	}
+};
+
+TEST(CR3Test, TestCR3RealValue)
+{
+	/*
+	 * CR2: 0x7ffde15c9ec9
+	 * 0000000000000000011111111111110111100001010111001001111011001001
+	 */
+	struct cr3_t cr3;
+	cr3.val = 0x0000000009458004;
+
+	ASSERT_EQ(cr3.val, 0x0000000009458004);
 }
 
 };
