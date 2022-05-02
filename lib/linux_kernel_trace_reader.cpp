@@ -14,7 +14,7 @@ std::ostream& operator<<(std::ostream& os, const cr0_t &cr0)
 
 	os << "reserved MBZ: 		";
 	for (bit = 31; bit >= 0; bit--) {
-		os << ((cr0.reserved_MBZ >> bit) & 1);
+		os << ((cr0.reservedMBZ >> bit) & 1);
 	}
 	os << "\n";
 
@@ -82,7 +82,7 @@ std::ostream& operator<<(std::ostream& os, const cr3_t &cr3)
 
 	os << "reserved MBZ: 		";
 	for (bit = 11; bit >= 0; bit--) {
-		os << ((cr3.reserved_MBZ >> bit) & 1);
+		os << ((cr3.reservedMBZ >> bit) & 1);
 	}
 	os << "\n";
 
@@ -98,20 +98,47 @@ std::ostream& operator<<(std::ostream& os, const cr3_t &cr3)
 	}
 	os << "\n";
 
-	os << "Reserved:	";
-	for (bit = 6; bit >= 0; bit--) {
-		os << ((cr3.Reserved1 >> bit) & 1);
+	return os;
+}
+
+
+std::ostream& operator<<(std::ostream& os, const cr4_t &cr4)
+{
+	int bit;
+
+	os << "This register contains additional controls for various operating-mode features.\n";
+	for (bit = 63; bit >= 0; bit--) {
+		os << ((cr4.val >> bit) & 1);
 	}
 	os << "\n";
 
-	os << "Page-Level Cache Disable: 		" << cr3.PCD << "\n";
-	os << "Page-Level Writethrough: 		" << cr3.PWT << "\n";
-
-	os << "Reserved:	";
-	for (bit = 2; bit >= 0; bit--) {
-		os << ((cr3.Reserved2 >> bit) & 1);
+	os << "reserved MBZ: 		";
+	for (bit = 39; bit >= 0; bit--) {
+		os << ((cr4.reservedMBZ >> bit) & 1);
 	}
 	os << "\n";
+
+	os << "CET: 		" << cr4.CET 	<< "\n";
+	os << "PKE: 		" << cr4.PKE 	<< "\n";
+	os << "SMAP: 		" << cr4.SMAP 	<< "\n";
+	os << "SMEP: 		" << cr4.SMEP 	<< "\n";
+	os << "reserved1: 	" << cr4.reserved1 << "\n";
+	os << "OSXSAVE: 	" << cr4.OSXSAVE << "\n";
+	os << "PCIDE: 		" << cr4.PCIDE 	<< "\n";
+	os << "FSGSBASE: 	" << cr4.FSGSBASE << "\n";
+	os << "reserved2: 	" << cr4.reserved2 << "\n";
+	os << "UMIP: 		" << cr4.UMIP 	<< "\n";
+	os << "OSXMMEXCPT: 	" << cr4.OSXMMEXCPT << "\n";
+	os << "OSFXSR: 		" << cr4.OSFXSR << "\n";
+	os << "PCE: 		" << cr4.PCE 	<< "\n";
+	os << "PGE: 		" << cr4.PGE 	<< "\n";
+	os << "MCE: 		" << cr4.MCE 	<< "\n";
+	os << "PAE: 		" << cr4.PAE 	<< "\n";
+	os << "PSE: 		" << cr4.PSE 	<< "\n";
+	os << "DE: 		" << cr4.DE 	<< "\n";
+	os << "TSD: 		" << cr4.TSD 	<< "\n";
+	os << "PVI: 		" << cr4.PVI 	<< "\n";
+	os << "VME: 		" << cr4.VME 	<< "\n";
 
 	return os;
 }
