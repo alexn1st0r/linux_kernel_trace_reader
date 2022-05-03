@@ -24,7 +24,7 @@ protected:
 	}
 };
 
-TEST(CR0Test, TestCR0RealValue)
+TEST(CR0Test, RealValue)
 {
 	/*
 	 * CR0: 80050033
@@ -36,7 +36,7 @@ TEST(CR0Test, TestCR0RealValue)
 	ASSERT_EQ(cr0.val, 0x80050033);
 }
 
-TEST(CR0Test, TestCR0ReservedMBZValue)
+TEST(CR0Test, ReservedMBZValue)
 {
 	/*
 	 * CR0: 80050033
@@ -48,7 +48,7 @@ TEST(CR0Test, TestCR0ReservedMBZValue)
 	ASSERT_EQ(cr0.reservedMBZ, 0);
 }
 
-TEST(CR0Test, TestCR0PagingValue)
+TEST(CR0Test, PagingValue)
 {
 	/*
 	 * CR0: 80050033
@@ -60,7 +60,7 @@ TEST(CR0Test, TestCR0PagingValue)
 	ASSERT_EQ(cr0.PG, 1);
 }
 
-TEST(CR0Test, TestCR0CacheDisableValue)
+TEST(CR0Test, CacheDisableValue)
 {
 	/*
 	 * CR0: 80050033
@@ -72,7 +72,7 @@ TEST(CR0Test, TestCR0CacheDisableValue)
 	ASSERT_EQ(cr0.CD, 0);
 }
 
-TEST(CR0Test, TestCR0NotWritethroughValue)
+TEST(CR0Test, NotWritethroughValue)
 {
 	/*
 	 * CR0: 80050033
@@ -84,7 +84,7 @@ TEST(CR0Test, TestCR0NotWritethroughValue)
 	ASSERT_EQ(cr0.NW, 0);
 }
 
-TEST(CR0Test, TestCR0Reserved1Value)
+TEST(CR0Test, Reserved1Value)
 {
 	/*
 	 * CR0: 80050033
@@ -96,7 +96,7 @@ TEST(CR0Test, TestCR0Reserved1Value)
 	ASSERT_EQ(cr0.reserved1, 0);
 }
 
-TEST(CR0Test, TestCR0AlighnmentMaskValue)
+TEST(CR0Test, AlighnmentMaskValue)
 {
 	/*
 	 * CR0: 80050033
@@ -108,7 +108,7 @@ TEST(CR0Test, TestCR0AlighnmentMaskValue)
 	ASSERT_EQ(cr0.AM, 1);
 }
 
-TEST(CR0Test, TestCR0Reserved2Value)
+TEST(CR0Test, Reserved2Value)
 {
 	/*
 	 * CR0: 80050033
@@ -120,7 +120,7 @@ TEST(CR0Test, TestCR0Reserved2Value)
 	ASSERT_EQ(cr0.reserved2, 0);
 }
 
-TEST(CR0Test, TestCR0WriteProtectValue)
+TEST(CR0Test, WriteProtectValue)
 {
 	/*
 	 * CR0: 80050033
@@ -132,7 +132,7 @@ TEST(CR0Test, TestCR0WriteProtectValue)
 	ASSERT_EQ(cr0.WP, 1);
 }
 
-TEST(CR0Test, TestCR0Reserved3Value)
+TEST(CR0Test, Reserved3Value)
 {
 	/*
 	 * CR0: 80050033
@@ -144,7 +144,7 @@ TEST(CR0Test, TestCR0Reserved3Value)
 	ASSERT_EQ(cr0.reserved3, 0);
 }
 
-TEST(CR0Test, TestCR0NumericErrorValue)
+TEST(CR0Test, NumericErrorValue)
 {
 	/*
 	 * CR0: 80050033
@@ -156,7 +156,7 @@ TEST(CR0Test, TestCR0NumericErrorValue)
 	ASSERT_EQ(cr0.NE, 1);
 }
 
-TEST(CR0Test, TestCR0ExtentionTypeValue)
+TEST(CR0Test, ExtentionTypeValue)
 {
 	/*
 	 * CR0: 80050033
@@ -168,7 +168,7 @@ TEST(CR0Test, TestCR0ExtentionTypeValue)
 	ASSERT_EQ(cr0.ET, 1);
 }
 
-TEST(CR0Test, TestCR0TaskSwitchedValue)
+TEST(CR0Test, TaskSwitchedValue)
 {
 	/*
 	 * CR0: 80050033
@@ -180,7 +180,7 @@ TEST(CR0Test, TestCR0TaskSwitchedValue)
 	ASSERT_EQ(cr0.TS, 0);
 }
 
-TEST(CR0Test, TestCR0EmulationValue)
+TEST(CR0Test, EmulationValue)
 {
 	/*
 	 * CR0: 80050033
@@ -192,7 +192,7 @@ TEST(CR0Test, TestCR0EmulationValue)
 	ASSERT_EQ(cr0.EM, 0);
 }
 
-TEST(CR0Test, TestCR0MonitorCoprocessorValue)
+TEST(CR0Test, MonitorCoprocessorValue)
 {
 	/*
 	 * CR0: 80050033
@@ -204,7 +204,7 @@ TEST(CR0Test, TestCR0MonitorCoprocessorValue)
 	ASSERT_EQ(cr0.MP, 1);
 }
 
-TEST(CR0Test, TestCR0ProtectionEnabledValue)
+TEST(CR0Test, ProtectionEnabledValue)
 {
 	/*
 	 * CR0: 80050033
@@ -233,7 +233,7 @@ protected:
 	}
 };
 
-TEST(CR2Test, TestCR2RealValue)
+TEST(CR2Test, RealValue)
 {
 	/*
 	 * CR2: 0x7ffde15c9ec9
@@ -262,7 +262,7 @@ protected:
 	}
 };
 
-TEST(CR3Test, TestCR3RealValue)
+TEST(CR3Test, RealValue)
 {
 	/*
 	 * CR3: 9458004
@@ -274,7 +274,7 @@ TEST(CR3Test, TestCR3RealValue)
 	ASSERT_EQ(cr3.val, 0x0000000009458004);
 }
 
-TEST(CR3Test, TestCR3ReservedMBZ)
+TEST(CR3Test, ReservedMBZ)
 {
 	/*
 	 * CR3: 9458004
@@ -286,7 +286,7 @@ TEST(CR3Test, TestCR3ReservedMBZ)
 	ASSERT_EQ(cr3.reservedMBZ, 0);
 }
 
-TEST(CR3Test, TestCR3PageMapLevel4TableBaseAddress)
+TEST(CR3Test, PageMapLevel4TableBaseAddress)
 {
 	/*
 	 * CR3: 9458004
@@ -298,7 +298,7 @@ TEST(CR3Test, TestCR3PageMapLevel4TableBaseAddress)
 	ASSERT_EQ(cr3.PageMapLevel4TableBaseAddress, 0x9458);
 }
 
-TEST(CR3Test, TestCR3ProcessorContextId)
+TEST(CR3Test, ProcessorContextId)
 {
 	/*
 	 * CR3: 9458004
@@ -327,7 +327,7 @@ protected:
 	}
 };
 
-TEST(CR4Test, TestCR4RealValue)
+TEST(CR4Test, RealValue)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -339,7 +339,7 @@ TEST(CR4Test, TestCR4RealValue)
 	ASSERT_EQ(cr4.val, 0x00000000001706e0);
 }
 
-TEST(CR4Test, TestCR4ReservedMBZ)
+TEST(CR4Test, ReservedMBZ)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -351,7 +351,7 @@ TEST(CR4Test, TestCR4ReservedMBZ)
 	ASSERT_EQ(cr4.reservedMBZ, 0);
 }
 
-TEST(CR4Test, TestCR4ControlFlowEnforcementTechnology)
+TEST(CR4Test, ControlFlowEnforcementTechnology)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -363,7 +363,7 @@ TEST(CR4Test, TestCR4ControlFlowEnforcementTechnology)
 	ASSERT_EQ(cr4.CET, 0);
 }
 
-TEST(CR4Test, TestCR4ProtectionKeyEnable)
+TEST(CR4Test, ProtectionKeyEnable)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -375,7 +375,7 @@ TEST(CR4Test, TestCR4ProtectionKeyEnable)
 	ASSERT_EQ(cr4.PKE, 0);
 }
 
-TEST(CR4Test, TestCR4SupervisorModeAccessProtection)
+TEST(CR4Test, SupervisorModeAccessProtection)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -387,7 +387,7 @@ TEST(CR4Test, TestCR4SupervisorModeAccessProtection)
 	ASSERT_EQ(cr4.SMAP, 0);
 }
 
-TEST(CR4Test, TestCR4SupervisorModeExecutionPrevention)
+TEST(CR4Test, SupervisorModeExecutionPrevention)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -399,7 +399,7 @@ TEST(CR4Test, TestCR4SupervisorModeExecutionPrevention)
 	ASSERT_EQ(cr4.SMEP, 1);
 }
 
-TEST(CR4Test, TestCR4Reserved)
+TEST(CR4Test, Reserved)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -411,7 +411,7 @@ TEST(CR4Test, TestCR4Reserved)
 	ASSERT_EQ(cr4.reserved1, 0);
 }
 
-TEST(CR4Test, TestCR4XSAVEAndProcessorExtendedStatesEnableBit)
+TEST(CR4Test, XSAVEAndProcessorExtendedStatesEnableBit)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -423,7 +423,7 @@ TEST(CR4Test, TestCR4XSAVEAndProcessorExtendedStatesEnableBit)
 	ASSERT_EQ(cr4.OSXSAVE, 1);
 }
 
-TEST(CR4Test, TestCR4ProcessContextIdentifierEnable)
+TEST(CR4Test, ProcessContextIdentifierEnable)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -435,7 +435,7 @@ TEST(CR4Test, TestCR4ProcessContextIdentifierEnable)
 	ASSERT_EQ(cr4.PCIDE, 1);
 }
 
-TEST(CR4Test, TestCR4FSGSBASE)
+TEST(CR4Test, FSGSBASE)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -447,7 +447,7 @@ TEST(CR4Test, TestCR4FSGSBASE)
 	ASSERT_EQ(cr4.FSGSBASE, 1);
 }
 
-TEST(CR4Test, TestCR4Reserved2)
+TEST(CR4Test, Reserved2)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -459,7 +459,7 @@ TEST(CR4Test, TestCR4Reserved2)
 	ASSERT_EQ(cr4.reserved2, 0);
 }
 
-TEST(CR4Test, TestCR4UserModeInstructionPrevention)
+TEST(CR4Test, UserModeInstructionPrevention)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -471,7 +471,7 @@ TEST(CR4Test, TestCR4UserModeInstructionPrevention)
 	ASSERT_EQ(cr4.UMIP, 0);
 }
 
-TEST(CR4Test, TestCR4OperatingSystemUnmaskedExceptionSupport)
+TEST(CR4Test, OperatingSystemUnmaskedExceptionSupport)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -483,7 +483,7 @@ TEST(CR4Test, TestCR4OperatingSystemUnmaskedExceptionSupport)
 	ASSERT_EQ(cr4.OSXMMEXCPT, 1);
 }
 
-TEST(CR4Test, TestCR4OperatingSystemFXSAVEFXRSTORSupport)
+TEST(CR4Test, OperatingSystemFXSAVEFXRSTORSupport)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -495,7 +495,7 @@ TEST(CR4Test, TestCR4OperatingSystemFXSAVEFXRSTORSupport)
 	ASSERT_EQ(cr4.OSFXSR, 1);
 }
 
-TEST(CR4Test, TestCR4PerformanceMonitoringCounterEnable)
+TEST(CR4Test, PerformanceMonitoringCounterEnable)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -507,7 +507,7 @@ TEST(CR4Test, TestCR4PerformanceMonitoringCounterEnable)
 	ASSERT_EQ(cr4.PCE, 0);
 }
 
-TEST(CR4Test, TestCR4PageGlobalEnable)
+TEST(CR4Test, PageGlobalEnable)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -519,7 +519,7 @@ TEST(CR4Test, TestCR4PageGlobalEnable)
 	ASSERT_EQ(cr4.PGE, 1);
 }
 
-TEST(CR4Test, TestCR4MachineCheckEnable)
+TEST(CR4Test, MachineCheckEnable)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -531,7 +531,7 @@ TEST(CR4Test, TestCR4MachineCheckEnable)
 	ASSERT_EQ(cr4.MCE, 1);
 }
 
-TEST(CR4Test, TestCR4PhysicalAddressExtension)
+TEST(CR4Test, PhysicalAddressExtension)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -543,7 +543,7 @@ TEST(CR4Test, TestCR4PhysicalAddressExtension)
 	ASSERT_EQ(cr4.PAE, 1);
 }
 
-TEST(CR4Test, TestCR4PageSizeExtension)
+TEST(CR4Test, PageSizeExtension)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -555,7 +555,7 @@ TEST(CR4Test, TestCR4PageSizeExtension)
 	ASSERT_EQ(cr4.PSE, 0);
 }
 
-TEST(CR4Test, TestCR4DebuggingExtensions)
+TEST(CR4Test, DebuggingExtensions)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -567,7 +567,7 @@ TEST(CR4Test, TestCR4DebuggingExtensions)
 	ASSERT_EQ(cr4.PSE, 0);
 }
 
-TEST(CR4Test, TestCR4TimeStampDisable)
+TEST(CR4Test, TimeStampDisable)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -579,7 +579,7 @@ TEST(CR4Test, TestCR4TimeStampDisable)
 	ASSERT_EQ(cr4.TSD, 0);
 }
 
-TEST(CR4Test, TestCR4ProtectedModeVirtualInterrupts)
+TEST(CR4Test, ProtectedModeVirtualInterrupts)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -591,7 +591,7 @@ TEST(CR4Test, TestCR4ProtectedModeVirtualInterrupts)
 	ASSERT_EQ(cr4.PVI, 0);
 }
 
-TEST(CR4Test, TestCR4Virtual8086ModeExtensions)
+TEST(CR4Test, Virtual8086ModeExtensions)
 {
 	/*
 	 * CR4: 00000000001706e0
@@ -620,7 +620,7 @@ protected:
 	}
 };
 
-TEST(RFLAGSTest, TestRFLAGSRealValue)
+TEST(RFLAGSTest, RealValue)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -632,7 +632,7 @@ TEST(RFLAGSTest, TestRFLAGSRealValue)
 	ASSERT_EQ(rflags.val, 0x00010246);
 }
 
-TEST(RFLAGSTest, TestRFLAGSReservedRAZ)
+TEST(RFLAGSTest, ReservedRAZ)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -644,7 +644,7 @@ TEST(RFLAGSTest, TestRFLAGSReservedRAZ)
 	ASSERT_EQ(rflags.reservedRAZ, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSProcessorFeatureIdentificationBit)
+TEST(RFLAGSTest, ProcessorFeatureIdentificationBit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -656,7 +656,7 @@ TEST(RFLAGSTest, TestRFLAGSProcessorFeatureIdentificationBit)
 	ASSERT_EQ(rflags.ID, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSVirtualInterruptPending)
+TEST(RFLAGSTest, VirtualInterruptPending)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -668,7 +668,7 @@ TEST(RFLAGSTest, TestRFLAGSVirtualInterruptPending)
 	ASSERT_EQ(rflags.VIP, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSVirtualInterruptBit)
+TEST(RFLAGSTest, VirtualInterruptBit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -680,7 +680,7 @@ TEST(RFLAGSTest, TestRFLAGSVirtualInterruptBit)
 	ASSERT_EQ(rflags.VIF, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSAlignmentCheckBit)
+TEST(RFLAGSTest, AlignmentCheckBit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -692,7 +692,7 @@ TEST(RFLAGSTest, TestRFLAGSAlignmentCheckBit)
 	ASSERT_EQ(rflags.AC, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSVirtual8086ModeBit)
+TEST(RFLAGSTest, Virtual8086ModeBit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -704,7 +704,7 @@ TEST(RFLAGSTest, TestRFLAGSVirtual8086ModeBit)
 	ASSERT_EQ(rflags.VM, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSResumeFlagBit)
+TEST(RFLAGSTest, ResumeFlagBit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -716,7 +716,7 @@ TEST(RFLAGSTest, TestRFLAGSResumeFlagBit)
 	ASSERT_EQ(rflags.RF, 1);
 }
 
-TEST(RFLAGSTest, TestRFLAGSReserved1Bit)
+TEST(RFLAGSTest, Reserved1Bit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -728,7 +728,7 @@ TEST(RFLAGSTest, TestRFLAGSReserved1Bit)
 	ASSERT_EQ(rflags.reserved1, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSNestedTaskBit)
+TEST(RFLAGSTest, NestedTaskBit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -740,7 +740,7 @@ TEST(RFLAGSTest, TestRFLAGSNestedTaskBit)
 	ASSERT_EQ(rflags.NT, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSInputOutputPrivilegeLevelFieldField)
+TEST(RFLAGSTest, InputOutputPrivilegeLevelFieldField)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -752,7 +752,7 @@ TEST(RFLAGSTest, TestRFLAGSInputOutputPrivilegeLevelFieldField)
 	ASSERT_EQ(rflags.IOPL, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSOverflowFlag)
+TEST(RFLAGSTest, OverflowFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -764,7 +764,7 @@ TEST(RFLAGSTest, TestRFLAGSOverflowFlag)
 	ASSERT_EQ(rflags.OF, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSDirectionFlag)
+TEST(RFLAGSTest, DirectionFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -776,7 +776,7 @@ TEST(RFLAGSTest, TestRFLAGSDirectionFlag)
 	ASSERT_EQ(rflags.DF, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSInterruptFlag)
+TEST(RFLAGSTest, InterruptFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -788,7 +788,7 @@ TEST(RFLAGSTest, TestRFLAGSInterruptFlag)
 	ASSERT_EQ(rflags.IF, 1);
 }
 
-TEST(RFLAGSTest, TestRFLAGSTrapFlag)
+TEST(RFLAGSTest, TrapFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -800,7 +800,7 @@ TEST(RFLAGSTest, TestRFLAGSTrapFlag)
 	ASSERT_EQ(rflags.TF, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSSignFlag)
+TEST(RFLAGSTest, SignFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -812,7 +812,7 @@ TEST(RFLAGSTest, TestRFLAGSSignFlag)
 	ASSERT_EQ(rflags.SF, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSZeroFlag)
+TEST(RFLAGSTest, ZeroFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -824,7 +824,7 @@ TEST(RFLAGSTest, TestRFLAGSZeroFlag)
 	ASSERT_EQ(rflags.ZF, 1);
 }
 
-TEST(RFLAGSTest, TestRFLAGSReserved2Bit)
+TEST(RFLAGSTest, Reserved2Bit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -836,7 +836,7 @@ TEST(RFLAGSTest, TestRFLAGSReserved2Bit)
 	ASSERT_EQ(rflags.reserved2, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSAuxiliaryFlag)
+TEST(RFLAGSTest, AuxiliaryFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -848,7 +848,7 @@ TEST(RFLAGSTest, TestRFLAGSAuxiliaryFlag)
 	ASSERT_EQ(rflags.AF, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSReserved3Bit)
+TEST(RFLAGSTest, Reserved3Bit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -860,7 +860,7 @@ TEST(RFLAGSTest, TestRFLAGSReserved3Bit)
 	ASSERT_EQ(rflags.reserved3, 0);
 }
 
-TEST(RFLAGSTest, TestRFLAGSParityFlag)
+TEST(RFLAGSTest, ParityFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -872,7 +872,7 @@ TEST(RFLAGSTest, TestRFLAGSParityFlag)
 	ASSERT_EQ(rflags.PF, 1);
 }
 
-TEST(RFLAGSTest, TestRFLAGSReserved4Bit)
+TEST(RFLAGSTest, Reserved4Bit)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
@@ -884,7 +884,7 @@ TEST(RFLAGSTest, TestRFLAGSReserved4Bit)
 	ASSERT_EQ(rflags.reserved4, 1);
 }
 
-TEST(RFLAGSTest, TestRFLAGSCarryFlag)
+TEST(RFLAGSTest, CarryFlag)
 {
 	/*
 	 * RFLAGS: 00000000001706e0
