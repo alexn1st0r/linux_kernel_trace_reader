@@ -603,6 +603,300 @@ TEST(CR4Test, TestCR4Virtual8086ModeExtensions)
 	ASSERT_EQ(cr4.VME, 0);
 }
 
+
+class RFLAGSTest : public ::testing::Test { 
+
+protected:
+	RFLAGSTest() {
+	}
+
+	virtual ~RFLAGSTest() {
+	}
+
+	virtual void SetUp() {
+	}
+
+	virtual void TearDown() {
+	}
+};
+
+TEST(RFLAGSTest, TestRFLAGSRealValue)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.val, 0x00010246);
+}
+
+TEST(RFLAGSTest, TestRFLAGSReservedRAZ)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.reservedRAZ, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSProcessorFeatureIdentificationBit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.ID, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSVirtualInterruptPending)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.VIP, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSVirtualInterruptBit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.VIF, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSAlignmentCheckBit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.AC, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSVirtual8086ModeBit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.VM, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSResumeFlagBit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.RF, 1);
+}
+
+TEST(RFLAGSTest, TestRFLAGSReserved1Bit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.reserved1, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSNestedTaskBit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.NT, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSInputOutputPrivilegeLevelFieldField)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.IOPL, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSOverflowFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.OF, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSDirectionFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.DF, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSInterruptFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.IF, 1);
+}
+
+TEST(RFLAGSTest, TestRFLAGSTrapFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.TF, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSSignFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.SF, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSZeroFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.ZF, 1);
+}
+
+TEST(RFLAGSTest, TestRFLAGSReserved2Bit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.reserved2, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSAuxiliaryFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.AF, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSReserved3Bit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.reserved3, 0);
+}
+
+TEST(RFLAGSTest, TestRFLAGSParityFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.PF, 1);
+}
+
+TEST(RFLAGSTest, TestRFLAGSReserved4Bit)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.reserved4, 1);
+}
+
+TEST(RFLAGSTest, TestRFLAGSCarryFlag)
+{
+	/*
+	 * RFLAGS: 00000000001706e0
+	 * 0000000000000000000000000000000000000000000000010000001001000110
+	 */
+	struct rflags_t rflags;
+	rflags.val = 0x00010246;
+
+	ASSERT_EQ(rflags.CF, 0);
+}
+
+
 };
 
 int main(int argc, char **argv)

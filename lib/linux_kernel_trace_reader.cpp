@@ -142,3 +142,46 @@ std::ostream& operator<<(std::ostream& os, const cr4_t &cr4)
 
 	return os;
 }
+
+std::ostream& operator<<(std::ostream& os, const rflags_t &rflags)
+{
+	int bit;
+
+	os << "RFLAGS—This register contains processor-status and processor-control fields.\n";
+	os << "The status and control fields are used primarily in the management \n";
+	os << "of virtual-8086 mode, hardware multitasking, and interrupts.\n";
+	for (bit = 63; bit >= 0; bit--) {
+		os << ((rflags.val >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "reserved MBZ: 		";
+	for (bit = 41; bit >= 0; bit--) {
+		os << ((rflags.reservedRAZ >> bit) & 1);
+	}
+	os << "\n";
+
+	os << "ID: 		" << rflags.ID 	<< "\n";
+	os << "VIP: 		" << rflags.VIP << "\n";
+	os << "VIF: 		" << rflags.VIF << "\n";
+	os << "AC: 		" << rflags.AC << "\n";
+	os << "VM: 		" << rflags.VM << "\n";
+	os << "RF: 		" << rflags.RF << "\n";
+	os << "reserved: 	" << rflags.reserved1 << "\n";
+	os << "NT: 		" << rflags.NT << "\n";
+	os << "IOPL: 		" << rflags.IOPL << "\n";
+	os << "OF: 		" << rflags.OF << "\n";
+	os << "DF: 		" << rflags.DF << "\n";
+	os << "IF: 		" << rflags.IF << "\n";
+	os << "TF: 		" << rflags.TF << "\n";
+	os << "SF: 		" << rflags.SF << "\n";
+	os << "ZF: 		" << rflags.ZF << "\n";
+	os << "reserved: 	" << rflags.reserved2 << "\n";
+	os << "AF: 		" << rflags.AF << "\n";
+	os << "reserved: 	" << rflags.reserved3 << "\n";
+	os << "PF: 		" << rflags.PF << "\n";
+	os << "reserved: 	" << rflags.reserved4 << "\n";
+	os << "CF: 		" << rflags.CF << "\n";
+
+	return os;
+}
